@@ -1,2 +1,2 @@
-# NASA-Insight
-Python Flask UI
+# NASA-InSight
+Python Flask-Bootstrap UI
