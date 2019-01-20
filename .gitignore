@@ -89,8 +89,11 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+<<<<<<< HEAD
 /virtual
 virtual
+=======
+>>>>>>> 5939fb15947d6ac4b35c346a9f40cb983f8f06db
 
 # Spyder project settings
 .spyderproject
@@ -103,4 +106,8 @@ virtual
 /site
 
 # mypy
+<<<<<<< HEAD
 .mypy_cache/
+=======
+.mypy_cache/
+>>>>>>> 5939fb15947d6ac4b35c346a9f40cb983f8f06db
