@@ -1,37 +1,23 @@
-{% extends "bootstrap/base.html" %}
-{% import "bootstrap/wtf.html" as wtf %}
-{% import "bootstrap/fixes.html" as fixes %}
-{% import "bootstrap/utils.html" as util %}
+<!DOCTYPE html>
+<html lang="en">
 
-
-{% block head %}
   <head>
-
-    {% block metas %}
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <meta name="description" content="">
       <meta name="author" content="">
-    {% endblock %}
 
-    {% block title %}<title>NASA InSight API</title>{% endblock %}
+    <title>NASA InSight API</title>
 
     <!-- Custom styles for this template -->
-    {% block styles %}
-      {{super()}}
         <link rel="stylesheet" href="{{ url_for('static', filename='css/half-slider.css') }}" media="screen">
         <link rel="stylesheet" href="{{ url_for('static', filename='/css/bootstrap.min.css') }}" media="screen">
         <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" media="screen">
-    {% endblock %}
-  
-  </head>
-{% endblock %}
 
-{% block body %}
+      </head>
   <body> 
 
     <!-- Navigation -->
-  {% block navbar %}
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
           <a class="navbar-brand" href="#">NASA Mars InSight Images</a>
@@ -50,9 +36,8 @@
           </div>
       </div>
     </nav>
-  {% endblock %}
 
-  {% block content %}
+
     <header>
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -100,10 +85,6 @@
         <h1>NASA InSight Metadata</h1>
         <h2>Enter Month and Year</h2>
 
-        {% if request.args.get('legacy') -%}
-          {{wtf.quick_form(form, novalidate=True)}}
-        {%- else -%}
-          {{form|render_form()}}
             <form action="" method="POST">
               <input title="month" placeholder="month" type="text"></input>  
               <input title="year" placeholder="year" type="text"></input>  
@@ -113,7 +94,6 @@
               <input type="text" class="input-medium bfh-phone" data-format="+1 (ddd) ddd-dddd"> 
             <button type="submit">Submit</button>
           </form>
-        {%- endif %}
 
         <p>This project was created for Python Programming COM418 Winter 2019. Please find my Github
           <code>https://github.com/mjoan</code>
@@ -130,17 +110,11 @@
         </p>
       </div>
      </footer>
-    {% endblock %}
 
     <!-- Bootstrap core JavaScript -->
-    {% block scripts %}
-      {{ super() }}
         <script src="{{ url_for('static', filename='/jquery/jquery.min.js') }}"></script>
         <script src="{{ url_for('static', filename='/js/bootstrap.bundle.min.js') }}"></script>
         <script src="{{ url_for('static', filename='/css/bootstrap.min.js') }}"></script>
-    {% endblock %}
-
-
 
   </body>
-  {% endblock %}
+</html>
