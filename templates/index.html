@@ -11,13 +11,13 @@
 
     <!-- Custom styles for this template -->
         <!-- Bootstrap core CSS -->
-        <!-- <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
+        <link href="static/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Custom styles for this template -->
-        <!-- <link href="css/half-slider.css" rel="stylesheet"> -->
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/half-slider.css') }}" media="screen">
+        <link href="static/css/half-slider.css" rel="stylesheet">
+        <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/half-slider.css') }}" media="screen">
         <link rel="stylesheet" href="{{ url_for('static', filename='/css/bootstrap.min.css') }}" media="screen">
-        <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" media="screen">
+        <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" media="screen"> -->
 
       </head>
   <body> 
@@ -45,30 +45,30 @@
 
     <header>
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
+        <!-- <ol class="carousel-indicators">
           <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
+        </ol> -->
         <div class="carousel-inner" role="listbox">
           <!-- Slide One - Set the background image for this slide in the line below -->
           <div class="carousel-item active" style="background-image: url('https://mars.nasa.gov/insight-raw-images/surface/sol/0004/idc/D000M0004_596887518EDR_F0000_0545M_.PNG')">
-            <div class="carousel-caption d-none d-md-block">
-              <h4>Mars InSight Photo</h4>
+            <div class="carousel-caption d-md-block">
+              <!-- <h4>Mars InSight Photo</h4> -->
               <p>November 2018</p>
             </div>
           </div>
           <!-- Slide Two - Set the background image for this slide in the line below -->
           <div class="carousel-item" style="background-image: url('https://mars.nasa.gov/insight-raw-images/surface/sol/0000/icc/C000M0000_596533559EDR_F0000_0106M_.PNG')">
-            <div class="carousel-caption d-none d-md-block">
-              <h4>Mars InSight Photo</h4>
+            <div class="carousel-caption d-md-block">
+              <!-- <h4>Mars InSight Photo</h4> -->
               <p>November 2018</p>
             </div>
           </div>
           <!-- Slide Three - Set the background image for this slide in the line below -->
           <div class="carousel-item" style="background-image: url('https://mars.nasa.gov/insight-raw-images/surface/sol/0004/idc/D000M0004_596886723EDR_F0000_0540M_.PNG')">
-            <div class="carousel-caption d-none d-md-block">
-              <h4>Mars InSight Photo </h4>
+            <div class="carousel-caption d-md-block">
+              <!-- <h4>Mars InSight Photo </h4> -->
               <p>November 2018</p>
             </div>
           </div>
@@ -117,12 +117,12 @@
      </footer>
 
     <!-- Bootstrap core JavaScript -->
-        <!-- Bootstrap core JavaScript -->
-        <!-- <script src="vendor/jquery/jquery.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
-        <script src="{{ url_for('static', filename='/jquery/jquery.min.js') }}"></script>
-        <script src="{{ url_for('static', filename='/js/bootstrap.bundle.min.js') }}"></script>
-        <script src="{{ url_for('static', filename='/css/bootstrap.min.js') }}"></script>
+    <!-- Bootstrap core JavaScript -->
+      <script src="static/jquery/jquery.min.js"></script>
+      <script src="static/js/bootstrap.bundle.min.js"></script>
+      <!-- <script src="{{ url_for('static', filename='/jquery/jquery.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='/js/bootstrap.bundle.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='/css/bootstrap.min.js') }}"></script> -->
 
   </body>
 </html>
