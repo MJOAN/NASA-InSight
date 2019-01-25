@@ -1,19 +1,7 @@
 # CREDIT: KonradIT Py Library https://pypi.org/project/insight-api/
-
-from flask import Flask, request, url_for, render_template
 import json
 import requests
 import os
-
-app = Flask(__name__)
-
-@app.route('/')
-def create_app():
-    return render_template("index.html")
-
-if __name__ == "__main__":
-    app.run(debug=True)
-
 
 class InSightAPI: 
     def __init__(self, order="desc", per_page="100", af="idc"):
