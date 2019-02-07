@@ -9,12 +9,15 @@
   font-style: oblique;
   font-weight: 500
 }
- .carousel-item {
-    height: 500px;
-    min-height: 300px;
-    background: no-repeat center center scroll;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-  }
+.selector-for-some-widget {
+  box-sizing: content-box;
+}
+.carousel-item {
+  height: 800px;
+  min-height: 800px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
