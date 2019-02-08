@@ -33,20 +33,23 @@ def create_app():
 def images():
     images = InSightMission.get_all(json_request)
     # print(images, json_request)
-    return render_template("images.html", images=images)
+    results = [x for x in images]
+    print(results)
+    return render_template("images.html", results=results)
 
 
-@app.route('/notification', methods=['POST']) # from date params
-def notification(email, phone):
-    email = request.form['email']
+@app.route('/notifications', methods=['POST']) # from date params
+def notifications(phone):
+    # email = request.form['email']
     phone = request.form['phone']
     message = client.messages \
                 .create(
-                     body="Thank you for registering to receive NASA Mars InSight Raw Image notifications! It is good to know we are going to stay in touch! Keep reaching for the stars! :)",
-                     from_='+12139557528',
-                     to=phone
-                 )
+                    body="Thank you for registering to receive NASA Mars InSight Raw Image notifications! It is good to know we are going to stay in touch! Keep reaching for the planets!! :)",
+                    from_='+12139557528',
+                    to=phone
+                )
     print(message.sid)
+    return str(message)
 
 @app.route('/metadata') # show metadata 
 def metadata():
