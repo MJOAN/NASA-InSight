@@ -12,8 +12,17 @@ import urllib
 
 import requests
 import json
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
-client = Client('TWILIO_ACCOUNT_SID', 'TWILIO_AUTH_TOKEN')
+BASEDIR = os.path.abspath(os.path.dirname(__file__))
+load_dotenv(os.path.join(BASEDIR, '.env'))
+accounts_id = os.getenv('TWILIO_ACCOUNT_SID')
+account_token = os.getenv('TWILIO_AUTH_TOKEN')
+account_sid = accounts_id
+auth_token = account_token
+
 app = Flask(__name__, template_folder="templates")
 
 class Notification(Form):
@@ -38,10 +47,11 @@ def images():
     return render_template("images.html", results=results)
 
 
-@app.route('/notifications', methods=['POST']) # from date params
-def notifications(phone):
-    # email = request.form['email']
+@app.route('/sms', methods=['POST']) # from date params
+def sms(phone):
     phone = request.form['phone']
+    client = Client('TWILIO_ACCOUNT_SID', 'TWILIO_AUTH_TOKEN')
+    # message = MessagingResponse()
     message = client.messages \
                 .create(
                     body="Thank you for registering to receive NASA Mars InSight Raw Image notifications! It is good to know we are going to stay in touch! Keep reaching for the planets!! :)",
@@ -50,6 +60,12 @@ def notifications(phone):
                 )
     print(message.sid)
     return str(message)
+
+@app.route('/email', methods=['POST']) # from date params
+def email(email):
+    email = request.form['email']
+    return str("Thank you for registering to receive NASA Mars InSight Raw Image notifications! It is good to know we are going to stay in touch! Keep reaching for the planets! ;)")
+
 
 @app.route('/metadata') # show metadata 
 def metadata():

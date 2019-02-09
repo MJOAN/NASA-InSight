@@ -10,11 +10,16 @@
     <title>NASA InSight API</title>
 
     <!-- Bootstrap core CSS -->
-      <link href=" {{ url_for('static',filename=static/css/bootstrap.min.css) }}" rel="stylesheet">
+    <!-- <link href="static/css/bootstrap.min.css" rel="stylesheet"> -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"> -->
 
     <!-- Custom styles for this template -->
-      <link rel="icon" href="{{ url_for('static',filename=static/css/static/favicon.ico) }}" media="screen">
-      <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <!-- <link href="static/css/half-slider.css" rel="stylesheet">
+    <link rel="icon" href="static/css/favicon.ico" media="screen"> -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/half-slider.css') }}" media="screen">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" media="screen">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" media="screen">
     
       </head>
   <body> 
@@ -94,27 +99,31 @@
             <br>
             <br>
 
-          <form action="{{ notifications }}" method="POST" >
-            <!-- <div class="form-group row">
+          <form class="form-inline" action="{{ sms }}" method="POST" >
+            <div class="form-group mb-2">
               <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
               <div class="col-sm-10">
                 <input type="email" class="form-control" name="email" id="email-input" placeholder="Email" style="max-width: 300px;" autofocus>
               </div>
-            </div> -->
-
-            <div class="form-group row">
-              <label for="tel-input" class="col-2 col-form-label">Phone</label>
-              <div class="col-10">
-                <input class="form-control" type="tel" name="phone" id="tel-input" style="max-width: 300px;" autofocus>
-              </div>
             </div>
-            <p>Enter your phone to get notifications on when new images have been posted!</p>
-          
-          {% raw %}
+            {% raw %}
             <button type="submit" class="btn btn-primary" ng-disabled="loading">Submit</button>
           {% endraw %}
           </form>
 
+          <form class="form-inline" action="{{ email }}" method="POST" >
+            <div class="form-group mb-2">
+              <label for="tel-input" class="col-2 col-form-label">Phone</label>
+              <div class="col-10">
+                <input class="form-control" type="tel" name="phone" id="tel-input" placeholder="Phone" style="max-width: 300px;" autofocus>           
+              </div>
+            </div>
+            {% raw %}
+            <button type="submit" class="btn btn-primary" ng-disabled="loading">Submit</button>
+          {% endraw %}
+          </form>
+
+          <p>Enter your phone to get notifications on when new images have been posted!</p>
           <br>
           <br>
         <p>This project was created for Python Programming COMSCI X418.104B Winter 2019. Please find my Github <code>https://github.com/mjoan/nasa-insight</code>here.</p>
