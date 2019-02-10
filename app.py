@@ -13,21 +13,19 @@ import urllib
 import requests
 import json
 import os
-from dotenv import load_dotenv
-load_dotenv()
 
-BASEDIR = os.path.abspath(os.path.dirname(__file__))
-load_dotenv(os.path.join(BASEDIR, '.env'))
-accounts_id = os.getenv('TWILIO_ACCOUNT_SID')
-account_token = os.getenv('TWILIO_AUTH_TOKEN')
-account_sid = accounts_id
-auth_token = account_token
+import os
+TWILIO_ACCOUNT_SID = os.environ.get("TWILIO_ACCOUNT_SID")
+TWILIO_AUTH_TOKEN = os.environ.get("TWILIO_AUTH_TOKEN")
+
+from dotenv import load_dotenv, find_dotenv
+load_dotenv(find_dotenv())
 
 app = Flask(__name__, template_folder="templates")
 
 class Notification(Form):
     date = DateField('date', format='%m-%d-%Y') 
-    phone = IntegerField('phone')
+    phone = IntegerField('phone', validators=[DataRequired()])
     email = StringField('email', [
         Length(min=6, message=(u'please submit a valid email address')),
         Email(message=('That\'s not a valid email address.'))
@@ -46,12 +44,11 @@ def images():
     print(results)
     return render_template("images.html", results=results)
 
-
-@app.route('/sms', methods=['POST']) # from date params
-def sms(phone):
+@app.route('/sms', methods=['POST'])
+def sms():
     phone = request.form['phone']
-    client = Client('TWILIO_ACCOUNT_SID', 'TWILIO_AUTH_TOKEN')
-    # message = MessagingResponse()
+    # phone = request.args.get('phone') use for debugging
+    client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
     message = client.messages \
                 .create(
                     body="Thank you for registering to receive NASA Mars InSight Raw Image notifications! It is good to know we are going to stay in touch! Keep reaching for the planets!! :)",
@@ -59,9 +56,9 @@ def sms(phone):
                     to=phone
                 )
     print(message.sid)
-    return str(message)
+    return render_template("sms.html")
 
-@app.route('/email', methods=['POST']) # from date params
+@app.route('/email', methods=['POST']) 
 def email(email):
     email = request.form['email']
     return str("Thank you for registering to receive NASA Mars InSight Raw Image notifications! It is good to know we are going to stay in touch! Keep reaching for the planets! ;)")
@@ -71,7 +68,6 @@ def email(email):
 def metadata():
     # metadata = InSightMission.get_metadata(json_request, image_id)
     pass
-
 
 if __name__ == "__main__":
     app.run(debug=True)
