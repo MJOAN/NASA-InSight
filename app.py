@@ -18,9 +18,6 @@ import os
 TWILIO_ACCOUNT_SID = os.environ.get("TWILIO_ACCOUNT_SID")
 TWILIO_AUTH_TOKEN = os.environ.get("TWILIO_AUTH_TOKEN")
 
-from dotenv import load_dotenv, find_dotenv
-load_dotenv(find_dotenv())
-
 app = Flask(__name__, template_folder="templates")
 
 class Notification(Form):
