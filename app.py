@@ -10,6 +10,8 @@ from twilio.twiml.messaging_response import MessagingResponse, Message
 from twilio.rest import Client
 import urllib
 
+import model as db
+
 import requests
 import json
 import os
@@ -43,6 +45,7 @@ def images():
 @app.route('/sms', methods=['POST'])
 def sms():
     phone = request.form['phone']
+    db.insertEmail(phone)
     # phone = request.args.get('phone') use for debugging
     client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
     message = client.messages \
@@ -55,15 +58,18 @@ def sms():
     return render_template("sms.html")
 
 @app.route('/email', methods=['POST']) 
-def email(email):
+def email():
     email = request.form['email']
-    return str("Thank you for registering to receive NASA Mars InSight Raw Image notifications! It is good to know we are going to stay in touch! Keep reaching for the planets! ;)")
+    db.insertEmail(email)
+    print(email)
+    return render_template("email.html")
 
-
-@app.route('/metadata') # show metadata 
-def metadata():
-    # metadata = InSightMission.get_metadata(json_request, image_id)
-    pass
+# @app.route('/metadata', methods=['GET'])
+# def metadata(image_id):
+#     metadata = InSightMission.get_metadata(json_request, image_id)
+#     results = [x for x in metadata]
+#     print(results)
+#     return render_template("metadata.html", results=results)
 
 if __name__ == "__main__":
     app.run(debug=True)
