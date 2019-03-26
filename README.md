@@ -13,17 +13,13 @@ The details below will get this project up and running on your local machine for
 
 Understanding how Flask is setup is important when getting started and requires a `/templates` and `/static` folder for your `html` and `css` respectively. Your `html` will need to include specific Flask syntax in order for the python template engine called, `jinja2` to render the page. Below is an example of the `jinja2` syntax using a `{{ url_for }}` to obtain your folders for stylesheets.
 
-![Folder Structure](screenshot3.png)
 ![Jinja2 Syntax](screenshot4.png)
 
-
-### Files, Code
-
-Starting with `app.py` you'll see all imports and libraries used to get started. I created a class for user notifications which included validation with `WTForms`. Each route is for a purpose to display `/images`, confirm `/sms`, and `/email`. The most important route for `/images` is a request to the `InSightAPI` for all images. Next feature will include a search option to search by date. The `model.py` was for my `SQLite3` database setup however, I will be moving to Postgres as Heroku doesn't fully support SQLite3. 
+Starting with `app.py` you'll see all imports and libraries used to get started. I created a class for user notifications which included validation with `WTForms`. Each route is to display `/images`, confirm `/sms`, and `/email`. The most important route for `/images` is a request to the `InSightAPI` for all images. Next feature will include a search option to search by date. The `model.py` was for my `SQLite3` database setup however, I will be moving to Postgres as Heroku doesn't fully support SQLite3. 
 
 ## Deployment
 
-This application is deployed on [Heroku](https://devcenter.heroku.com/categories/python-support) which required a [Procfile](https://devcenter.heroku.com/articles/procfile) and [runtime.txt](https://devcenter.heroku.com/articles/python-runtimes) file. Heroku doesn't work with SQLite3 so I will be moving to Postgres. I used a `.env` file for my Twilio API keys and utilized `os.environ.get` in my code for retrieval. 
+This application is deployed on [Heroku](https://devcenter.heroku.com/categories/python-support) which required a [Procfile](https://devcenter.heroku.com/articles/procfile) and [runtime.txt](https://devcenter.heroku.com/articles/python-runtimes) file. I used a `.env` file for my Twilio API keys and utilized `os.environ.get` in my code for retrieval. 
 
 ## Built With
 * [InsightAPI](https://pypi.org/project/insight-api/) - Python library 
@@ -51,8 +47,8 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Konrad Iturbe [Konrad](https://pypi.org/user/konraditurbe/) 
+* [Konrad](https://pypi.org/user/konraditurbe/) Iturbe
 * Dr. Huang for the UCLA Extension Python Programming class
-* NASA for letting developers use their data [NASA](https://api.nasa.gov/)
+* [NASA](https://api.nasa.gov/)for letting developers use their data 
 
 
