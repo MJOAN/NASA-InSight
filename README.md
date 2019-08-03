@@ -47,8 +47,8 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* [Konrad](https://pypi.org/user/konraditurbe/) Iturbe
+* [Konrad](https://pypi.org/user/konraditurbe/) Iturbe for developing the `InSightAPI` library, what an amazing achievement!
 * Dr. Huang for the UCLA Extension Python Programming class
-* [NASA](https://api.nasa.gov/)for letting developers use their data 
+* [NASA](https://api.nasa.gov/) for letting developers use their data 
 
 
