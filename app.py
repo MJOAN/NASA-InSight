@@ -6,16 +6,12 @@ from insightmars import InSightAPI, utils
 InSightMission = InSightAPI()
 json_request = InSightMission.make_request()
 
-from twilio.twiml.messaging_response import MessagingResponse, Message
 from twilio.rest import Client
-import urllib
-
-import requests
-import json
 import os
 
 TWILIO_ACCOUNT_SID = os.environ.get("TWILIO_ACCOUNT_SID")
 TWILIO_AUTH_TOKEN = os.environ.get("TWILIO_AUTH_TOKEN")
+TWILIO_NUMBER = os.environ.get("TWILIO_NUMBER")
 
 app = Flask(__name__, template_folder="templates")
 
@@ -43,12 +39,12 @@ def images():
 @app.route('/sms', methods=['POST'])
 def sms():
     phone = request.form['phone']
-    # phone = request.args.get('phone') use for debugging
+    # phone = request.args.get('phone') # use for debugging
     client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
     message = client.messages \
                 .create(
                     body="Thank you for registering to receive NASA Mars InSight Raw Image notifications! It is good to know we are going to stay in touch! Keep reaching for the planets!! :)",
-                    from_='+12139557528',
+                    from_=TWILIO_NUMBER,
                     to=phone
                 )
     print(message.sid)

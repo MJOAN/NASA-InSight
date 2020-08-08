@@ -106,3 +106,5 @@ virtual
 
 # mypy
 .mypy_cache/
+twilio.env
+*.env

@@ -16,6 +16,8 @@
     <!-- Custom styles for this template -->
     <!-- <link href="static/css/half-slider.css" rel="stylesheet">
     <link rel="icon" href="static/css/favicon.ico" media="screen"> -->
+
+    
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/half-slider.css') }}" media="screen">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" media="screen">
@@ -115,12 +117,12 @@
             <div class="form-group mb-2">
               <label for="input" class="col-sm-2 ">Phone</label>
                 <div class="col-sm-10">
-                <input type="phone" class="form-control" name="phone" placeholder="Phone" style="max-width: 185px;" autofocus>           
+                <input type="phone" class="form-control" name="phone" placeholder="Phone" style="max-width: 185px;" autofocus>
               </div>
             </div>
             {% raw %}
             <button type="submit" class="btn btn-outline-primary" ng-disabled="loading">Submit</button>
-          {% endraw %}
+            {% endraw %}
           </form>
 
           <p>Enter your phone to get notifications on when new images have been posted!</p>
