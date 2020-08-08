@@ -1,8 +1,8 @@
-from flask import Flask, request, render_template, flash, g, session, redirect, url_for
-from wtforms import Form, StringField, IntegerField, DateField, SubmitField, validators
-from wtforms.validators import ValidationError, DataRequired, Email, EqualTo, Length
+from flask import Flask, request, render_template
+from insightmars import InSightAPI
+from wtforms import Form, StringField, IntegerField, DateField, SubmitField
+from wtforms.validators import DataRequired, Email, Length
 
-from insightmars import InSightAPI, utils
 InSightMission = InSightAPI()
 json_request = InSightMission.make_request()
 
@@ -43,7 +43,7 @@ def sms():
     client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
     message = client.messages \
                 .create(
-                    body="Thank you for registering to receive NASA Mars InSight Raw Image notifications! It is good to know we are going to stay in touch! Keep reaching for the planets!! :)",
+                    body="Thank you for registering to receive NASA Mars InSight Raw Image notifications (and soon Perseverance)! It is good to know we are going to stay in touch! Keep reaching for the planets!! :)",
                     from_=TWILIO_NUMBER,
                     to=phone
                 )

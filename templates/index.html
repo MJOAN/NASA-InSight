@@ -2,10 +2,20 @@
 <html lang="en">
 
   <head>
+
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <meta name="description" content="">
       <meta name="author" content="">
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-167456906-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-167456906-2');
+    </script>
+
 
     <title>NASA InSight API</title>
 
@@ -93,7 +103,7 @@
           <form action="{{ url_for('images') }}" method="GET" >  
             <h1>NASA InSight Raw Image and Metadata</h1>   
             {% raw %}
-              <button type="submit" class="btn btn-outline-primary" ng-disabled="loading">Click to Request Recent Images</button>
+              <button type="submit" class="btn btn-outline-primary" ng-disabled="loading">Click to View Recent Images</button>
             {% endraw %}
           </form>
 
@@ -128,7 +138,9 @@
           <p>Enter your phone to get notifications on when new images have been posted!</p>
           <br>
           <br>
-        <p>This project was created for Python Programming COMSCI X418.104B Winter 2019. Please find my Github <code>https://github.com/mjoan/nasa-insight</code>here.</p>
+
+          <p> We will be awaiting the Perseverance landing on February 18, 2021 and plan to provide NASA images for both rovers! </p>
+          <p> Check back soon for more details! </p>
       </div>
     </section>
 
@@ -136,8 +148,10 @@
      <footer class="py-5 bg-dark">
       <div class="container">
         <p class="m-0 text-center text-white">Copyright &copy; 2019 NASA images from InSight API Py Library from Konrad Iturbe.
-          <br>The index.html file is a Bootstrap template released under the MIT license from Copyright &copy; 2013-2018 Blackrock Digital LLC.
-          </p>
+          <br>The index.html file is a Bootstrap template released under the MIT license from Copyright &copy; 2013-2018 Blackrock Digital LLC.  <br>
+          This project was created for Python Programming UCLA COMSCI X418.104B Winter 2019. <br>
+            Please find my Github <code>https://github.com/mjoan/nasa-insight</code>here. <br>
+        </p>
       </div>
      </footer>
 
