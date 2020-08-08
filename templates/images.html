@@ -13,10 +13,34 @@
         <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" media="screen">
     </head>
     
-    <body> 
-        <div class="container">
-            <div class="header clearfix">
-                <h1>NASA InSight Raw Images</h1>
+    <body>
+
+        <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+          <a class="navbar-brand" href="#">NASA Mars InSight API</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+            </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="{{ url_for('create_app') }}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+            </ul>
+          </div>
+      </div>
+    </nav>
+
+
+        <!-- Page Content -->
+        <section class="py-5">
+            <br>
+            <div class="page-header">
+                <h4>NASA InSight Raw Images</h4>
             </div>
         
             <!-- <div class="jumbotron">
@@ -54,9 +78,7 @@
                   <span class="sr-only">Next</span>
                 </a> -->
               </div>
-
-            </div>
-
+        </section>
         <!-- Footer -->
         <footer class="py-5 bg-dark">
             <div class="container">
