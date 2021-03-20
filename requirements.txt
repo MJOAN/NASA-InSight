@@ -5,7 +5,7 @@ Flask-WTF==0.14.2
 gunicorn==19.9.0
 insight-api==0.5
 itsdangerous==1.1.0
-Jinja2==2.10
+Jinja2==2.11.3
 jsonschema==2.6.0
 MarkupSafe==1.1.0
 twilio==6.24.0
